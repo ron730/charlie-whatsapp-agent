@@ -1,15 +1,19 @@
 import importlib
+from pathlib import Path
 
 from fastapi import FastAPI, Request
 
 import database
-from config import SPEC
+from config import DATABASE_PATH, SPEC
 from tools.whatsapp import send_reply
+
+# Ensure data directory exists before any module tries to open the DB
+Path(DATABASE_PATH).parent.mkdir(parents=True, exist_ok=True)
+
+database.init_db()
 
 # Wire tools that are available without external auth
 importlib.import_module("tools.reminders")
-
-database.init_db()
 
 app = FastAPI()
 
