@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "project_dir": "C:/Users/Ron/whatsapp-agent",
+  "bot_name": "צ'רלי",
+  "archetype": "personal_assistant",
+  "current_stage": "deploy",
+  "completed_stages": ["setup", "characterize", "build"],
+  "connected_tools": [],
+  "render_url": null,
+  "persistence_choice": "disk_planned",
+  "last_touched_iso": "2026-04-23T00:00:00Z"
+}
