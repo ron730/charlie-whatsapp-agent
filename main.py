@@ -3,6 +3,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, Request
 
+import config
 import database
 from config import DATABASE_PATH, SPEC
 from tools.whatsapp import send_reply
