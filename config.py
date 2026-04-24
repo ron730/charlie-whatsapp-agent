@@ -31,6 +31,10 @@ else:
 DATABASE_PATH = os.getenv("DATABASE_PATH", "data/conversations.db")
 MAX_HISTORY = int(os.getenv("MAX_HISTORY", "20"))
 
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
+GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
+GOOGLE_REFRESH_TOKEN = os.getenv("GOOGLE_REFRESH_TOKEN")
+
 _spec_path = Path(__file__).parent / "spec.json"
 with open(_spec_path, encoding="utf-8") as f:
     SPEC = json.load(f)

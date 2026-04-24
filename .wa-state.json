@@ -3,10 +3,13 @@
   "project_dir": "C:/Users/Ron/whatsapp-agent",
   "bot_name": "צ'רלי",
   "archetype": "personal_assistant",
-  "current_stage": "deploy",
-  "completed_stages": ["setup", "characterize", "build"],
+  "current_stage": "connect",
+  "completed_stages": ["setup", "characterize", "build", "deploy"],
   "connected_tools": [],
-  "render_url": null,
-  "persistence_choice": "disk_planned",
+  "render_url": "https://charlie-whatsapp-agent.onrender.com",
+  "render_service_id": "srv-d7l3ip9kh4rs73fh21pg",
+  "render_dashboard_url": "https://dashboard.render.com/web/srv-d7l3ip9kh4rs73fh21pg",
+  "render_region": "frankfurt",
+  "persistence_choice": "ephemeral",
   "last_touched_iso": "2026-04-23T00:00:00Z"
 }

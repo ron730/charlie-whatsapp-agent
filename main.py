@@ -15,6 +15,10 @@ database.init_db()
 # Wire tools that are available without external auth
 importlib.import_module("tools.reminders")
 
+# Wire Google tools (require GOOGLE_* env vars)
+if config.GOOGLE_REFRESH_TOKEN:
+    importlib.import_module("tools.google_calendar")
+
 app = FastAPI()
 
 _AUTHORIZED = {
