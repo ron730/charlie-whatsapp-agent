@@ -21,10 +21,13 @@ def _service():
 
 def search_emails(query: str, max_results: int = 10) -> str:
     """Search emails by query (Gmail search syntax)."""
-    svc = _service()
-    result = svc.users().messages().list(
-        userId="me", q=query, maxResults=max_results
-    ).execute()
+    try:
+        svc = _service()
+        result = svc.users().messages().list(
+            userId="me", q=query, maxResults=max_results
+        ).execute()
+    except Exception as e:
+        return f"שגיאה בגישה ל-Gmail: {type(e).__name__}: {e}"
 
     messages = result.get("messages", [])
     if not messages:
