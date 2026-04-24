@@ -20,8 +20,9 @@ def _service():
 
 def list_events(time_min_iso: str, time_max_iso: str) -> str:
     """List calendar events between two ISO-8601 timestamps."""
-    svc = _service()
-    result = svc.events().list(
+    try:
+        svc = _service()
+        result = svc.events().list(
         calendarId="primary",
         timeMin=time_min_iso,
         timeMax=time_max_iso,
@@ -30,18 +31,20 @@ def list_events(time_min_iso: str, time_max_iso: str) -> str:
         maxResults=20,
     ).execute()
 
-    events = result.get("items", [])
-    if not events:
-        return "אין אירועים בטווח הזמן שביקשת."
+        events = result.get("items", [])
+        if not events:
+            return "אין אירועים בטווח הזמן שביקשת."
 
-    lines = []
-    for e in events:
-        start = e["start"].get("dateTime", e["start"].get("date", ""))
-        summary = e.get("summary", "(ללא כותרת)")
-        location = e.get("location", "")
-        loc_str = f" | {location}" if location else ""
-        lines.append(f"• {start[:16].replace('T', ' ')} — {summary}{loc_str}")
-    return "\n".join(lines)
+        lines = []
+        for e in events:
+            start = e["start"].get("dateTime", e["start"].get("date", ""))
+            summary = e.get("summary", "(ללא כותרת)")
+            location = e.get("location", "")
+            loc_str = f" | {location}" if location else ""
+            lines.append(f"• {start[:16].replace('T', ' ')} — {summary}{loc_str}")
+        return "\n".join(lines)
+    except Exception as e:
+        return f"שגיאה בגישה ליומן: {type(e).__name__}: {e}"
 
 
 def create_event(summary: str, start_iso: str, end_iso: str, description: str = "") -> str:
