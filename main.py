@@ -20,6 +20,7 @@ importlib.import_module("tools.reminders")
 if config.GOOGLE_REFRESH_TOKEN:
     importlib.import_module("tools.google_calendar")
     importlib.import_module("tools.gmail")
+    importlib.import_module("tools.google_tasks")
 
 app = FastAPI()
 

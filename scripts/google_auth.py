@@ -10,6 +10,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 SCOPES = [
     "https://www.googleapis.com/auth/calendar.events",
     "https://www.googleapis.com/auth/gmail.readonly",
+    "https://www.googleapis.com/auth/tasks",
 ]
 
 flow = InstalledAppFlow.from_client_secrets_file("google_client_secret.json", SCOPES)
