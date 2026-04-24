@@ -19,6 +19,7 @@ importlib.import_module("tools.reminders")
 # Wire Google tools (require GOOGLE_* env vars)
 if config.GOOGLE_REFRESH_TOKEN:
     importlib.import_module("tools.google_calendar")
+    importlib.import_module("tools.gmail")
 
 app = FastAPI()
 
