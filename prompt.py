@@ -1,3 +1,6 @@
+from datetime import datetime
+import zoneinfo
+
 from config import SPEC
 
 
@@ -30,7 +33,12 @@ def build_system_prompt(tool_registry: dict) -> str:
         "long": "ענה בפירוט כאשר נדרש.",
     }.get(extras.get("response_length", "short"), "ענה בקצרה.")
 
+    now = datetime.now(zoneinfo.ZoneInfo("Asia/Jerusalem"))
+    date_str = now.strftime("%A, %d/%m/%Y, %H:%M")
+
     prompt = f"""אתה {identity['name']}, עוזר אישי חברי ושימושי.
+כעת: {date_str} (שעון ישראל)
+
 
 ## זהות וסגנון
 {identity['tone_description']}. דבר בגוף ראשון, בעברית, בטון חברי וקרוב. אל תהיה רשמי.
