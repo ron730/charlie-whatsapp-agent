@@ -10,7 +10,7 @@
     "answer_groups": false,
     "mode": "whitelist",
     "authorized_contacts": [
-      {"name": "אלי", "phone_e164": "972523434135"}
+      {"name": "רון", "phone_e164": "972523434135"}
     ],
     "blocklist": []
   },
@@ -20,7 +20,7 @@
     "out_of_scope_response": "סליחה, זה לא בתחום שלי. אני יכול לעזור עם יומן, מיילים ותזכורות."
   },
   "knowledge": {
-    "static_knowledge": "אלי עובד 7 ימים בשבוע, 08:00 עד 21:00.",
+    "static_knowledge": "רון עובד 7 ימים בשבוע, 08:00 עד 21:00.",
     "kb_sections": {}
   },
   "tools": ["google_calendar", "gmail", "whatsapp_groups", "reminders"],
